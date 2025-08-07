@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pr_module_c_project/global/colors.dart';
 
-class ResumosPage extends StatefulWidget {
-  const ResumosPage({super.key});
+class PerfilPage extends StatefulWidget {
+  const PerfilPage({super.key});
 
   @override
-  State<ResumosPage> createState() => _ResumosPageState();
+  State<PerfilPage> createState() => _PerfilPageState();
 }
 
-class _ResumosPageState extends State<ResumosPage> {
+class _PerfilPageState extends State<PerfilPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: corClara,
+      backgroundColor: corEscuro,
       bottomNavigationBar: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -37,38 +37,11 @@ class _ResumosPageState extends State<ResumosPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.home, color: corEscuro),
+                        Icon(Icons.home, color: corClara),
                         Text(
                           'Home',
                           style: TextStyle(
-                            color: corEscuro,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(
-                      context,
-                    ).pushReplacementNamed('/perfil');
-                  },
-                  borderRadius: BorderRadius.circular(10),
-                  child: Padding(
-                    padding: EdgeInsetsGeometry.symmetric(
-                      vertical: 2,
-                      horizontal: 5,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.person, color: corEscuro),
-                        Text(
-                          'Perfil',
-                          style: TextStyle(
-                            color: corEscuro,
+                            color: corClara,
                             fontSize: 14,
                           ),
                         ),
@@ -87,11 +60,38 @@ class _ResumosPageState extends State<ResumosPage> {
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.note_alt, color: corRoxoMedio),
+                        Icon(Icons.person, color: corRoxoMedio),
+                        Text(
+                          'Perfil',
+                          style: TextStyle(
+                            color: corRoxoMedio,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(
+                      context,
+                    ).pushReplacementNamed('/resumos');
+                  },
+                  borderRadius: BorderRadius.circular(10),
+                  child: Padding(
+                    padding: EdgeInsetsGeometry.symmetric(
+                      vertical: 2,
+                      horizontal: 5,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.note_alt, color: corClara),
                         Text(
                           'Resumos',
                           style: TextStyle(
-                            color: corRoxoMedio,
+                            color: corClara,
                             fontSize: 14,
                           ),
                         ),

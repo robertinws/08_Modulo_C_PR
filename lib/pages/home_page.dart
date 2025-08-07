@@ -205,7 +205,11 @@ class _HomePageState extends State<HomePage> {
               spacing: 20,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(
+                      context,
+                    ).pushReplacementNamed('/home');
+                  },
                   borderRadius: BorderRadius.circular(10),
                   child: Padding(
                     padding: EdgeInsetsGeometry.symmetric(
@@ -228,7 +232,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(
+                      context,
+                    ).pushReplacementNamed('/perfil');
+                  },
                   borderRadius: BorderRadius.circular(10),
                   child: Padding(
                     padding: EdgeInsetsGeometry.symmetric(
@@ -251,7 +259,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(
+                      context,
+                    ).pushReplacementNamed('/resumos');
+                  },
                   borderRadius: BorderRadius.circular(10),
                   child: Padding(
                     padding: EdgeInsetsGeometry.symmetric(
