@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pr_module_c_project/global/colors.dart';
 import 'package:pr_module_c_project/global/variaveis.dart';
 
@@ -49,6 +52,15 @@ class _LoginPageState extends State<LoginPage> {
         resultado = '$resultado${listValores[i]}';
       }
       if (resultado == '3245') {
+        String listStringJson = await rootBundle.loadString(
+          'assets/jsons/artigos.json',
+        );
+        listArtigos = jsonDecode(listStringJson);
+        artigosUnico = jsonDecode(
+          await rootBundle.loadString(
+            'assets/jsons/artigo_2_detalhado.json',
+          ),
+        );
         Navigator.of(context).pushReplacementNamed('/home');
       } else {
         setState(() {
@@ -58,7 +70,6 @@ class _LoginPageState extends State<LoginPage> {
         await Future.delayed(Duration(seconds: 2), () {
           setState(() {
             error = false;
-            print('owjdwojdwjow');
           });
         });
       }
@@ -72,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
       FocusScope.of(context).requestFocus(focusNode);
     }
     return Scaffold(
+      backgroundColor: corClara,
       body: SafeArea(
         child: Center(
           child: Padding(
