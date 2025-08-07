@@ -33,24 +33,35 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void validar() async {
-    String resultado = '';
-    for (int i = 0; i < listValores.length; i++) {
-      resultado = '$resultado${listValores[i]}';
+    bool errorCamposVazio = false;
+    for (int h = 0; h < listControllers.length; h++) {
+      if (listControllers[h].text.isEmpty) {
+        errorCamposVazio = true;
+      }
     }
-    if (resultado == '3245') {
-      Navigator.of(context).pushReplacementNamed('/home');
-    } else {
-      setState(() {
-        error = true;
-      });
-      await methodChannel.invokeListMethod('toast', [
-        "Pin incorreto",
+    if (errorCamposVazio) {
+      await methodChannel.invokeMethod('toast', [
+        'Todos os campos são obrigatórios',
       ]);
-      await Future.delayed(Duration(seconds: 2), () {
+    } else {
+      String resultado = '';
+      for (int i = 0; i < listValores.length; i++) {
+        resultado = '$resultado${listValores[i]}';
+      }
+      if (resultado == '3245') {
+        Navigator.of(context).pushReplacementNamed('/home');
+      } else {
         setState(() {
-          error = false;
+          error = true;
         });
-      });
+        await methodChannel.invokeMethod('toast', ["Pin incorreto"]);
+        await Future.delayed(Duration(seconds: 2), () {
+          setState(() {
+            error = false;
+            print('owjdwojdwjow');
+          });
+        });
+      }
     }
   }
 
