@@ -1,6 +1,7 @@
 package com.example.pr_module_c_project;
 
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -39,6 +40,17 @@ public class MainActivity extends FlutterActivity {
                         }
 
                         result.success(primeiraVez);
+
+                        break;
+
+                    case "toast":
+
+                        if (args != null) {
+
+                            String mensagem = args.get(0).toString();
+                            Toast.makeText(MainActivity.this,mensagem, Toast.LENGTH_SHORT).show();
+                            result.success("sucess");
+                        }
 
                         break;
 
