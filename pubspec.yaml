@@ -65,6 +65,7 @@ flutter:
     - assets/images/logo_light.png
     - assets/jsons/artigos.json
     - assets/jsons/artigo_2_detalhado.json
+    - assets/videos/video_fisica.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
