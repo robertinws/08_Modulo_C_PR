@@ -115,6 +115,102 @@ class _ArtigosPageState extends State<ArtigosPage> {
           ),
         ),
       ),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsetsGeometry.all(10),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        style: IconButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(
+                            38,
+                            255,
+                            255,
+                            255,
+                          ),
+                        ),
+                        icon: Icon(
+                          Icons.text_fields_outlined,
+                          color: corClara,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        style: IconButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(
+                            38,
+                            255,
+                            255,
+                            255,
+                          ),
+                        ),
+                        icon: Icon(Icons.settings, color: corClara),
+                      ),
+                    ],
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      if (videoIniciado) {
+                        setState(() {
+                          videoIniciado = false;
+                          videoPlayerController.pause();
+                        });
+                      } else {
+                        setState(() {
+                          videoIniciado = true;
+                          videoPlayerController.setVolume(1);
+
+                          videoPlayerController.play();
+                        });
+                      }
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(
+                        38,
+                        255,
+                        255,
+                        255,
+                      ),
+                      foregroundColor: corClara,
+                    ),
+                    child: Row(
+                      spacing: 10,
+                      children: [
+                        Icon(Icons.headphones, color: corClara),
+                        Text('Ouvir Algo'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Icon(Icons.dark_mode, color: corClara),
+                  Flexible(
+                    child: Slider(
+                      value: brilho,
+                      activeColor: corClara,
+                      onChanged: (newValue) {
+                        setState(() {
+                          brilho = newValue;
+                        });
+                      },
+                    ),
+                  ),
+                  Icon(Icons.light_mode_outlined, color: corClara),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

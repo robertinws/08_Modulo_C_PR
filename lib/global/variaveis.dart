@@ -4,3 +4,4 @@ String caminhoCanal = 'com.example.pr_module_c_project';
 MethodChannel methodChannel = MethodChannel('$caminhoCanal/main');
 List<dynamic> listArtigos = [];
 dynamic artigosUnico = '';
+double brilho = 0;
