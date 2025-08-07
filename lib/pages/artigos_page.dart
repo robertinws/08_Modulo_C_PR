@@ -61,13 +61,16 @@ class _ArtigosPageState extends State<ArtigosPage> {
                       artigosUnico['titulo'],
                       style: TextStyle(
                         color: corClara,
-                        fontSize: 25,
+                        fontSize: fonteApp + 8,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                     Text(
                       '${artigosUnico['descricao']} ${artigosUnico['data']}',
-                      style: TextStyle(color: corClara, fontSize: 14),
+                      style: TextStyle(
+                        color: corClara,
+                        fontSize: fonteApp - 4,
+                      ),
                     ),
                   ],
                 ),
@@ -108,7 +111,10 @@ class _ArtigosPageState extends State<ArtigosPage> {
                 ),
                 Text(
                   artigosUnico['conteudo'],
-                  style: TextStyle(color: corClara, fontSize: 16),
+                  style: TextStyle(
+                    color: corClara,
+                    fontSize: fonteApp,
+                  ),
                 ),
               ],
             ),
@@ -127,7 +133,76 @@ class _ArtigosPageState extends State<ArtigosPage> {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (_) {
+                              return AlertDialog(
+                                backgroundColor: corClara,
+                                title: Center(
+                                  child: Text('Alterar Fonte'),
+                                ),
+
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            fonteApp = 14;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              corRoxoMedio,
+                                          foregroundColor: corClara,
+                                        ),
+                                        child: Text('Pequeno'),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            fonteApp = 16;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              corRoxoMedio,
+                                          foregroundColor: corClara,
+                                        ),
+                                        child: Text('Médio'),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            fonteApp = 18;
+                                          });
+                                          Navigator.pop(context);
+                                        },
+                                        style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              corRoxoMedio,
+                                          foregroundColor: corClara,
+                                        ),
+                                        child: Text('Grande'),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                          );
+                        },
                         style: IconButton.styleFrom(
                           backgroundColor: const Color.fromARGB(
                             38,
